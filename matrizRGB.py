@@ -2,11 +2,22 @@ import numpy as np # pip install numpy
 from PIL import Image # pip install Pllow
 
 ##crear la matriz dentro de una clase
-data = [
-    [(255, 0  , 0  ), (100, 5, 200), (0, 0  , 255)],
-    [(0  , 0  , 0  ), (0, 0, 0), (0, 0  , 0  )],
-    [(255, 255, 255), (0, 0, 0), (0, 255, 0  )],  
-]
+# data = [
+#     [(255, 0  , 0  ), (100, 5, 200), (0, 0  , 255),(0, 0  , 255)],
+#     [(0  , 0  , 0  ), (0, 0, 0), (0, 0  , 0  ),(0, 0  , 255)],
+#     [(255, 255, 255), (0, 0, 0), (0, 255, 0  ),(0, 0  , 255)], 
+#     [(255, 255, 255), (0, 0, 0), (0, 255, 0  ),(0, 0  , 255)], 
+# ]
+
+data = []
+
+def crearMatriz(num,RGB):
+    ancho = []
+    for i in range(num):
+        ancho.append(RGB)
+    for i in range(num):
+        data.append(ancho)
+    print(data)
 
 def MatrizAImagen(matriz, filename='pixelart.png', factor=10):
     '''

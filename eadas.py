@@ -1,47 +1,43 @@
 import re
 import matrizRGB
 import instrucciones
-linea = 0
-llaves = 0
+
+#clase que funciona como un struct
+class info:
+    lineaActual = 0
+    llaves = 0
+    posMatriz = (0,0)
+
+#se obtiene cada linea del texto
+with open("archivo.txt", 'r') as f:
+    texto = f.read().splitlines()
+
+
+def comienzo():
+
+    inicio = re.compile(r"""
+        Ancho\ (?P<ancho>\d+)|
+        Color\ de\ fondo\ (?P<color>Rojo|Verde|Azul|Negro|Blanco)|
+        (?P<RGB>Color\ de\ fondo\ RGB\((?P<R>\d{1,3}),(?P<G>\d{1,3}),(?P<B>\d{1,3})\))|
+        """,re.X)
+    
+    for i in range(2):
+        token = re.search(inicio,texto[i])
+        if token != None:
+            print(token.group(0))
+            if token.group('ancho') != None:
+                ancho = int(token.group('ancho'))
+            elif token.group('color') != None:
+                color = instrucciones.colores(token.group(token.group('color')))
+            elif token.group('RGB') != None:
+                color = (int(token.group('R')),int(token.group('G')),int(token.group('B')))
+        else:
+            print("ERROR")
+    matrizRGB.crearMatriz(ancho,color)
 
 def tokenize(code):
-
-    # palab = [
-    #     r'Avanzar (?P<numA>[1-9])', 
-    #     r'Avanzar',
-    #     r'Pintar RGB\((?P<R>\d{1,3}),(?P<G>\d{1,3}),(?P<B>\d{1,3})\)',
-    #     r'Pintar (?P<color>Rojo|Verde|Azul|Negro|Blanco)',
-    #     r' Repetir (?P<nRep>[0-9]) veces {',
-    #     r'[^ \n]+'
-    # ]
-
-    # palab = [ #Palabras en lista para apreciar cada busqueda
-    #     r'Avanzar (?P<numA>[1-9])', 
-    #     r'Avanzar',
-    #     r'Pintar RGB\((?P<R>\d{1,3}),(?P<G>\d{1,3}),(?P<B>\d{1,3})\)',
-    #     r'Pintar (?P<color>Rojo|Verde|Azul|Negro|Blanco)',
-    #     r' Repetir (?P<nRep>[0-9]) veces {',
-    #     r'[^ \n]+'
-    # ]
-
-    #Compilador que tiene como match las instrucciones que contienen un espacio
-    # o cualquier palabra separada por un espacio
-    # palabras = re.compile(r"""
-    #     Avanzar\ (?P<numA>[1-9])|
-    #     Pintar\ RGB\((?P<R>\d{1,3}),(?P<G>\d{1,3}),(?P<B>\d{1,3})\)|
-    #     Pintar\ (?P<color>Rojo|Verde|Azul|Negro|Blanco)|
-    #     Repetir\ (?P<nRep>[0-9])\ veces {|
-    #     [^ \n]+
-    #     """,re.X)
-
-    # palabras = re.compile(r"""
-    #     (?P<AvanzarN>Avanzar\ (?P<numA>[1-9]))|
-    #     (?P<PintarRGB>Pintar\ RGB\((?P<R>\d{1,3}),(?P<G>\d{1,3}),(?P<B>\d{1,3})\))|
-    #     Pintar\ (?P<color>Rojo|Verde|Azul|Negro|Blanco)|
-    #     Repetir\ (?P<nRep>[0-9])\ veces {|
-    #     [^ \n]+
-    #     """,re.X)
-
+    
+    for i in range(2,len(texto)):
     #Instrucciones validas
     allTokens = re.compile(r"""
         (?P<AvanzarN>Avanzar\ (?P<numA>[1-9]))|
@@ -96,5 +92,5 @@ statements = '''
 
 '''
 
-tokenize(statements)
+comienzo()
 matrizRGB.MatrizAImagen(matrizRGB.Data)
