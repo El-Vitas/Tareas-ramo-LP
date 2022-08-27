@@ -1,96 +1,84 @@
-import re
-import matrizRGB
 import instrucciones
-
-#clase que funciona como un struct
-class info:
-    lineaActual = 0
-    llaves = 0
-    posMatriz = (0,0)
-
-#se obtiene cada linea del texto
-with open("archivo.txt", 'r') as f:
-    texto = f.read().splitlines()
-
-
+import matrizRGB
 def comienzo():
-
-    inicio = re.compile(r"""
-        Ancho\ (?P<ancho>\d+)|
-        Color\ de\ fondo\ (?P<color>Rojo|Verde|Azul|Negro|Blanco)|
-        (?P<RGB>Color\ de\ fondo\ RGB\((?P<R>\d{1,3}),(?P<G>\d{1,3}),(?P<B>\d{1,3})\))|
-        """,re.X)
+    inicio = instrucciones.re.compile(r"""
+        Ancho\ (?P<ancho>\d+)| #Ancho de la matriz
+        Color\ de\ fondo\ (?P<color>Rojo|Verde|Azul|Negro|Blanco)| #color de fondo de la matriz
+        (?P<RGB>Color\ de\ fondo\ RGB\((?P<R>\d{1,3}),(?P<G>\d{1,3}),(?P<B>\d{1,3})\)) #fondo rgb
+        """,instrucciones.re.X)
     
     for i in range(2):
-        token = re.search(inicio,texto[i])
+        token = instrucciones.re.search(inicio,instrucciones.informacion.texto[i])
         if token != None:
-            print(token.group(0))
             if token.group('ancho') != None:
                 ancho = int(token.group('ancho'))
             elif token.group('color') != None:
-                color = instrucciones.colores(token.group(token.group('color')))
+                color = instrucciones.colores(token.group('color'))
             elif token.group('RGB') != None:
                 color = (int(token.group('R')),int(token.group('G')),int(token.group('B')))
         else:
-            print("ERROR")
-    matrizRGB.crearMatriz(ancho,color)
+            instrucciones.informacion.errores(i)
+        instrucciones.informacion.info.lineaActual +=1
+    matrizRGB.data.crearMatriz(ancho,color)
 
-def tokenize(code):
-    
-    for i in range(2,len(texto)):
+    if(instrucciones.re.search(r'\S',instrucciones.informacion.texto[2])):
+        instrucciones.informacion.errores()
+    else:
+        instrucciones.informacion.info.lineaActual+=1
+
+def tokenize():
     #Instrucciones validas
-    allTokens = re.compile(r"""
+    allTokens = instrucciones.re.compile(r"""
         (?P<AvanzarN>Avanzar\ (?P<numA>[1-9]))|
         (?P<Avanzar>Avanzar)|
         (?P<PintarRGB>Pintar\ RGB\((?P<R>\d{1,3}),(?P<G>\d{1,3}),(?P<B>\d{1,3})\))|
         (?P<Pintar>Pintar\ (?P<color>Rojo|Verde|Azul|Negro|Blanco))|
-        (?P<Repetir>Repetir\ (?P<nRep>[0-9])\ veces {)|
+        (?P<Repetir>Repetir\ (?P<nRep>\d*)\ veces\ {)|
         (?P<Izquierda>Izquierda)|
         (?P<Derecha>Derecha)|
         (?P<Cierre>})|
         [^ \n]+
-        """,re.X)
+        """,instrucciones.re.X)
 
-    for token in re.finditer(allTokens, code):
-        print((token.start(), token.end(), token.group(0)))
-        opciones(token)
+    for i in range(instrucciones.informacion.info.lineaActual-1,len(instrucciones.informacion.texto)):
+        for token in instrucciones.re.finditer(allTokens, instrucciones.informacion.texto[i]):
+            print((token.start(), token.end(), token.group(0)))
+            instrucciones.opciones(token,instrucciones.informacion.info.rep)
 
-        
-def opciones(token):
-        if(token.group('AvanzarN') != None):
-            print("nice")
-        if(token.group('Avanzar') != None):
-            print("nice")
-        elif(token.group('PintarRGB') != None):
-            R = int(token.group('R'))
-            G = int(token.group('G'))
-            B = int(token.group('B'))
-            instrucciones.avanzar(R,G,B)
-        elif(token.group('Pintar') != None):
-            print("nice")
-        elif(token.group('Repetir') != None):
-            print("nice")
-        elif(token.group('Izquierda') != None):
-            print("nice")
-        elif(token.group('Derecha') != None):
-            print("nice")
-        elif(token.group('Cierre') != None):
-            print("nice")
-        else:
-            print("error")
+# def opciones(token,ciclo):
+#     if(informacion.info.flag): #flag que indica que todo lo que viene se encuentra dentro de una rep
+#         if(token.group('Repetir') != None):
+#             informacion.info.llaves+=1
+#         elif(token.group('Cierre') != None):
+#             instrucciones.cierreRep()
+#         informacion.info.rep.append(token)
+#     else:
+#         if(token.group('AvanzarN') != None):
+#             instrucciones.avanzar(int(token.group('numA')))
+#         elif(token.group('Avanzar') != None):
+#             instrucciones.avanzar(1)
+#         elif(token.group('PintarRGB') != None):
+#             R = int(token.group('R'))
+#             G = int(token.group('G'))
+#             B = int(token.group('B'))
+#             instrucciones.pintarRGB(R,G,B)
+#         elif(token.group('Pintar') != None):
+#             instrucciones.pintar(token.group('color'))
+#         elif(token.group('Repetir') != None):
+#             informacion.info.llaves+=1
+#             informacion.info.rep.append(token)
+#             informacion.info.flag = True
+#         elif(token.group('Izquierda') != None):
+#             instrucciones.izquierda()
+#         elif(token.group('Derecha') != None):
+#             instrucciones.derecha()
+#         elif(token.group('Cierre') != None):
+#             instrucciones.cierreRep()
+#         else:
+#             print("error")
 
-
-statements = '''
-
-    Pintar Blanco hola Avanzar 8 Pintar azul Pintar Azul Avanzar Avanzar 1 Avanzarr
-    Derecha Izquierda Pintar RGB(0,255,255)A Pintar RGB(4,15,1)
-    Pintar RbG(0,1,2) Pintar a RGB(0,12,255) Pintar RGB(256,255,255)
-    Pintar RGB(0,12,255)
-
-
-
-
-'''
 
 comienzo()
-matrizRGB.MatrizAImagen(matrizRGB.Data)
+tokenize()
+matrizRGB.MatrizAImagen(matrizRGB.data.getMatriz())
+

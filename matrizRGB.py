@@ -8,16 +8,21 @@ from PIL import Image # pip install Pllow
 #     [(255, 255, 255), (0, 0, 0), (0, 255, 0  ),(0, 0  , 255)], 
 #     [(255, 255, 255), (0, 0, 0), (0, 255, 0  ),(0, 0  , 255)], 
 # ]
+class MatrizRGB:
+    def __init__(self):
+        self.__data = []
 
-data = []
+    def crearMatriz(self,num,RGB):
+        for i in range(num):
+            self.__data.append([(RGB)]*num)
 
-def crearMatriz(num,RGB):
-    ancho = []
-    for i in range(num):
-        ancho.append(RGB)
-    for i in range(num):
-        data.append(ancho)
-    print(data)
+    def editarMatriz(self,RGB,posX,posY):
+        self.__data[posX][posY] = RGB
+
+    def getMatriz(self):
+        return self.__data
+
+data = MatrizRGB()
 
 def MatrizAImagen(matriz, filename='pixelart.png', factor=10):
     '''
