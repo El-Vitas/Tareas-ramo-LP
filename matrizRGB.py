@@ -1,18 +1,14 @@
 import numpy as np # pip install numpy
 from PIL import Image # pip install Pllow
 
-##crear la matriz dentro de una clase
-# data = [
-#     [(255, 0  , 0  ), (100, 5, 200), (0, 0  , 255),(0, 0  , 255)],
-#     [(0  , 0  , 0  ), (0, 0, 0), (0, 0  , 0  ),(0, 0  , 255)],
-#     [(255, 255, 255), (0, 0, 0), (0, 255, 0  ),(0, 0  , 255)], 
-#     [(255, 255, 255), (0, 0, 0), (0, 255, 0  ),(0, 0  , 255)], 
-# ]
+#MTRIZ
 class MatrizRGB:
     def __init__(self):
         self.__data = []
+        self.__ancho = 0
 
     def crearMatriz(self,num,RGB):
+        self.ancho = num
         for i in range(num):
             self.__data.append([(RGB)]*num)
 
@@ -21,6 +17,9 @@ class MatrizRGB:
 
     def getMatriz(self):
         return self.__data
+
+    def getAncho(self):
+        return self.__ancho
 
 data = MatrizRGB()
 

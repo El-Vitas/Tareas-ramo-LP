@@ -6,17 +6,17 @@ class info:
     posY = 0
     direccion = 'r'
     rep = []
-    nRep = []
     flag = False
 
 #se obtiene cada linea del texto
 with open("archivo.txt", 'r') as f:
     texto = f.read().splitlines()
 
-def errores():
-    with open("errores.txt",'w') as error:
-        error.write(f"{info.lineaActual} {texto[info.lineaActual-1]}")
-    quit()
+
+def errores(listaErrores):
+    with open("errores.txt",'w') as textError:
+        for error in listaErrores:
+            textError.write(f"{error}\n")
 
 
 
