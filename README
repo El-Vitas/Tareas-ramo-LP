@@ -1,0 +1,23 @@
+
+Nombre: Jonathan Nicolás Olivares Salinas.
+Rol: 202073096-2
+
+-Programa encargado de realizar un juego llamado JavaQuest. El juego consiste en ir avanzando por nodos, pudiendo acceder al mapa, alas estadisticas, ver los items aplicados, y avanzar. Los nodos intermedios pueden ser de 3 tipos, nodos evento, nodos combate y nodos tienda.
+En los nodos evento ocurre un evento en particular donde el jugador puede seleccionar 2 opciones, dependiendo de la opcion se le entrega una recompenza. 
+En los nodos combate el jugador se enfrenta a un enemigo, el combate termina cuando el hp de uno de los 2 llegue a cero. Si el jugador pierde termina el juego, si el jugador gana obtiene dinero.
+En los nodos tienda el jugador puede comprar items de un inventario el cual será mostrado por consola.
+Al llegar al final te enfrentas a un jefe. Si ganas el juego acaba y completas tu aventura.
+
+-Sobre el codigo:
+
+La representación del mapa, será mediante el codigo entregado, pero agregandole los tipos de nodos y el nodo actual.
+Se recomienda responder mediante las alternativas que se les indiquen y no con otras alternativas, aunque de igual forma se crearon validadores en caso de que el usuario ingrese por error otro valor que no corresponda al solicitado.
+
+-El programa cuenta 1 carpeta llamada Quest que contiene 11 archivos .java
+
+-makefile:
+
+Fuera de la carpeta Quest se encuentra un makefile para poder compilar y ejecutar el programa. Se recomienda tener la carpeta y el makefile dentro del mismo directorio, (¡el makefile fuera de la carpeta Quest, pero la carpeta y el makefile en el mismo directorio!). Los comandos que puede realizar son los siguientes:
+make : Compilará el programa.
+make run : Ejecutará el programa.
+make clean : Eliminará los archivos creados al compilarse el programa.
