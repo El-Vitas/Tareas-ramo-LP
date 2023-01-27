@@ -169,4 +169,4 @@ Sobre instrucción repetir: La instrucción repetir funciona recursivamente entr
 Ejecución del programa: Para ejecutar el programa se deben tener todos los archivos tanto .py como .txt dentro de la misma carpeta, de no ser así se necesitaría modificar el codigo. Luego con los archivos dentro de la misma carpeta se necesita ejecutar pixelart.py
 
 Al realizar todo lo anterior si las instrucciones entregadas son correctas, aparecerá un archivo llamado pixelart.png el cuál corresponde a la imagen creada 
-mediante las instrucciones. De no ser así se le marcará un error por consola, o en el archivo errores.txt (este archivo se crea automaticamente despues de la ejecucion del programa.).
+mediante las instrucciones. De no ser así se le marcará un error por consola, o en el archivo errores.txt (este archivo se crea automaticamente despues de la ejecucion del programa).
