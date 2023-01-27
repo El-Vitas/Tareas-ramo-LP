@@ -1,8 +1,4 @@
-
-Nombre: Jonathan Nicolás Olivares Salinas.
-Rol: 202073096-2
-
--Programa encargado de realizar un juego llamado JavaQuest. El juego consiste en ir avanzando por nodos, pudiendo acceder al mapa, alas estadisticas, ver los items aplicados, y avanzar. Los nodos intermedios pueden ser de 3 tipos, nodos evento, nodos combate y nodos tienda.
+-Programa encargado de realizar un juego llamado JavaQuest. El juego consiste en ir avanzando por nodos, pudiendo acceder al mapa, a las estadisticas, ver los items aplicados, y avanzar. Los nodos intermedios pueden ser de 3 tipos, nodos evento, nodos combate y nodos tienda.
 En los nodos evento ocurre un evento en particular donde el jugador puede seleccionar 2 opciones, dependiendo de la opcion se le entrega una recompenza. 
 En los nodos combate el jugador se enfrenta a un enemigo, el combate termina cuando el hp de uno de los 2 llegue a cero. Si el jugador pierde termina el juego, si el jugador gana obtiene dinero.
 En los nodos tienda el jugador puede comprar items de un inventario el cual será mostrado por consola.
