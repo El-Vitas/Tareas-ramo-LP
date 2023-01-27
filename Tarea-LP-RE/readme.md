@@ -101,13 +101,16 @@ Su programa debe ser capaz interpretar el código, detectar errores de sintaxis,
 8 }
 ```
 *Code 4: errores.txt*
- 
-
+```
+No hay errores!
+```
+<image src="examples/Imagen1.jpg" alt="Descripción de la imagen">
 Figura 1: pixelart.png
-	3.1.2.	Ejemplo 2
+	
+#### 3.1.2. Ejemplo 2
 	
 *Code 5: Ejemplo 2*
- 
+```
 1	Ancho 3
 2	Color de fondo RGB(0,0,0)
 3
@@ -116,14 +119,19 @@ Figura 1: pixelart.png
 6	Pintar Azul Avanzar 2 Derecha
 7	Pintar Blanco Avanzar Derecha Avanzar
 8	Pintar RGB(0,255,255)
- 
-Code 6: errores.txt
- 
- 
+```
+*Code 6: errores.txt*
+```
+No hay errores!
+```
+
+<image src="examples/Imagen2.jpg" alt="Descripción de la imagen">
 Figura 2: pixelart.png
-	3.1.3.	Ejemplo 3
-Code 7: Ejemplo 3
- 
+	
+#### 3.1.3. Ejemplo 3
+	
+*Code 7: Ejemplo 3*
+```
 1	Ancho 3
 2	Color de fondo Negro
 3
@@ -131,12 +139,13 @@ Code 7: Ejemplo 3
 5	Pintar RGB(255,0,0) Avanzar Derecha 1 Avanzar
 6	}
 7	Pintar RGB(255,0,0)
- 
-Code 8: errores.txt
- 
+```
+*Code 8: errores.txt*
+```
 1	4 Repetir 2 {
 2	5 Pintar RGB(255,0,0) Avanzar Derecha 1 Avanzar
- 
+```
+## Programa
 Informacion: El programa cuenta de 4 archivos .py: instrucciones.py: Funciones ligadas a las instrucciones del programa. informacion.py: Informacion extra necesaria para el programa. matrizRGB.py: Matriz del programa, funciones relacionadas a matrices y a convertir matrices a imagen pixelart.py: Modulo principal del programa, el cual se tiene que ejecutar para el funcionamiento de este.
 
 Cuenta con 2 archivos de texto:
