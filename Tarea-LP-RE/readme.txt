@@ -1,6 +1,3 @@
-Nombre: Jonathan Nicolás Olivares Salinas
-Rol: 202073096-2
-
 Informacion: 
     El programa cuenta de 4 archivos .py:
         instrucciones.py: Funciones ligadas a las instrucciones del programa.
