@@ -97,7 +97,7 @@ Su programa debe ser capaz interpretar el código, detectar errores de sintaxis,
 3
 4	Avanzar Derecha Avanzar
 5	Repetir 4 veces {
-6	Repetir 8 veces { Pintar Negro Avanzar } 7	Derecha Derecha Avanzar Derecha
+6	Repetir 8 veces { Pintar Negro Avanzar } 7 Derecha Derecha Avanzar Derecha
 8 }
 ```
 *Code 4: errores.txt*
