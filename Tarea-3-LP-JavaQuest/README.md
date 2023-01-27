@@ -17,7 +17,7 @@ Para crear Java Quest deberán implementar (y utilizar) las siguientes clases: P
 * **nombre**: Nombre del personaje.
 * **dinero**: Cuanto dinero tiene el personaje. En el caso del jugador representa cuanto puede gastar, en el caso de un enemigo corresponde a la cantidad de dinero que le otorga al jugador al ser derrotado.
 * **hp_actual**: Cantidad de vida que tiene actualmente el personaje, no puede exceder el **hp_total**.
-* **hp total**: Cantidad de vida máxima que puede tener el personaje.
+* **hp_total**: Cantidad de vida máxima que puede tener el personaje.
 * **danio**: Cantidad de vida que le resta a su oponente al combatir (antes de aplicar **defensa**).
 * **defensa**: Cantidad de daño evitado por golpe al combatir.
 * **combate**: Realiza el combate entre dos personajes. Durante un combate se selecciona un personaje aleatoriamente para comenzar y posteriormente se alternan al atacar. Durante un ataque, el personaje defensor pierde vida equivalente al daño de su oponente menos la **defensa** del defensor. El combate termina una vez el **hp_actual** de uno de los personajes sea menor o igual a 0.
