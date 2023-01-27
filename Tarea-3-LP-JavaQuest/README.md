@@ -5,37 +5,48 @@ Tras exitosamente superar tus certámenes con la ayuda de la herramienta que pro
 Para esta tarea deberán crear el juego Java Quest utilizando programación orientada a objetos en Java. En este juego los jugadores deben seleccionar un camino para avanzar por una serie de encuentros de distintos tipos con el objetivo de derrotar al jefe final.
 
 <image src="img/Imagen2.jpg" alt="Descripción de la imagen">
-*Figura 1: Ejemplo de un mapa de encuentros en un juego similar (Slay the Spire).*
+Figura 1: Ejemplo de un mapa de encuentros en un juego similar (Slay the Spire).
   
-## 3.	Definición
+## 3. Definición
 Para crear Java Quest deberán implementar (y utilizar) las siguientes clases: Personajes, Jugador, Items, Mapa, y los distintos tipos de nodos que puede haber en un mapa. A continuación, se presenta un diagrama de clases que describe que debe contener cada una de estas.
-
 <image src="img/Imagen.jpg" alt="Descripción de la imagen">  
+  
 *Figura 2: Clases a implementar*
-3.1.	Personaje
-  nombre: Nombre del personaje.
-  dinero: Cuanto dinero tiene el personaje. En el caso del jugador representa cuanto puede gastar, en el caso de un enemigo corresponde a la cantidad de dinero que le otorga al jugador al ser derrotado.
-hp actual: Cantidad de vida que tiene actualmente el personaje, no puede exceder el hp total. hp total: Cantidad de vida máxima que puede tener el personaje. danio: Cantidad de vida que le resta a su oponente al combatir (antes de aplicar defensa). defensa: Cantidad de daño evitado por golpe al combatir.
-combate: Realiza el combate entre dos personajes. Durante un combate se selecciona un personaje aleatoriamente para comenzar y posteriormente se alternan al atacar. Durante un ataque, el personaje defensor pierde vida equivalente al daño de su oponente menos la defensa del defensor. El combate termina una vez el hp actual de uno de los personajes sea menor o igual a 0.
-3.2.	Jugador
+  
+### 3.1. Personaje
+* **nombre**: Nombre del personaje.
+* **dinero**: Cuanto dinero tiene el personaje. En el caso del jugador representa cuanto puede gastar, en el caso de un enemigo corresponde a la cantidad de dinero que le otorga al jugador al ser derrotado.
+* **hp_actual**: Cantidad de vida que tiene actualmente el personaje, no puede exceder el **hp_total**.
+* **hp total**: Cantidad de vida máxima que puede tener el personaje.
+* **danio**: Cantidad de vida que le resta a su oponente al combatir (antes de aplicar **defensa**).
+* **defensa**: Cantidad de daño evitado por golpe al combatir.
+* **combate**: Realiza el combate entre dos personajes. Durante un combate se selecciona un personaje aleatoriamente para comenzar y posteriormente se alternan al atacar. Durante un ataque, el personaje defensor pierde vida equivalente al daño de su oponente menos la **defensa** del defensor. El combate termina una vez el **hp_actual** de uno de los personajes sea menor o igual a 0.
+### 3.2. Jugador
 Extiende la clase Personaje.
-items  aplicados: Una lista con los items que el personaje ha adquirido durante su aventura.
-verEstado: Muestra al usuario los atributos actuales del jugador (nombre, dinero, hp  actual, hp total, danio y defensa) verItems: Muestra al usuario los items que ha adquirido.
-3.3.	Item
-precio: Corresponde a cuánto dinero cuesta adquirir un item desde la tienda. recuperar hp: Cantidad de hp que recupera al jugador.
-aumentar hp total: Cantidad de hp  total que aumenta al jugador. Un aumento de hp total no afecta al hp  actual.
-aumentardanio: Cantidad de daño que aumenta al jugador. aumentar defensa: Cantidad de defensa que aumenta al jugador.
-aplicar: Agrega el item a la lista de items aplicados del jugador y aplica sus estadísticas.
-Si lo desean los atributos que no son el precio pueden incluir valores negativos. En caso de que ocurra que hp  total es menor que hp  actual, se debe dejar hp  actual igual a hp  total (lo que puede finalizar el juego si hp  actual es menor o igual a 0).
-3.4.	Mapa
-profundidad: Cantidad de ”pisos“ que tiene el mapa (no incluye el nodo inicial ni el nodo del jefe final). nodo inicial: Nodo inicial del mapa. nodo actual: Nodo en el que se encuentra el jugador.
-verMapa: Permite al usuario ver el mapa completo (queda a su criterio si se muestra el mapa completo, se muestra nivel a nivel o de otra forma).
-avanzar: Le muestra al usuario los nodos a los que puede avanzar, le pide seleccionar uno y hace al jugador interactuar con ese nodo.
-3.5.	Nodo
-id: Identificador, opcional, pero puede ser útil para generar el mapa. siguientes  nodos: Lista de nodos a los cuales se puede avanzar desde el actual. agregarNodo: Agrega un nodo a la lista de siguientes nodos.
-3.6.	NodoInicial
-  interactuar: Le muestra al usuario una introducción al juego (Instrucciones y pueden incluir una historia).
-3.7.	NodoEvento
+* **items_aplicados**: Una lista con los items que el personaje ha adquirido durante su aventura.
+* **verEstado**: Muestra al usuario los atributos actuales del jugador (**nombre**, **dinero**, **hp_actual**, **hp_total**, **danio** y **defensa**).
+* **verItems**: Muestra al usuario los items que ha adquirido.
+### 3.3. Item
+* **precio**: Corresponde a cuánto **dinero** cuesta adquirir un **item** desde la tienda.
+* **recuperar_hp**: Cantidad de hp que recupera al jugador.
+* **aumentar_hp_total**: Cantidad de hp  total que aumenta al jugador. Un aumento de **hp_total** no afecta al **hp_actual**.
+* **aumentar_danio**: Cantidad de daño que aumenta al jugador.
+* **aumentar_defensa: Cantidad de **defensa** que aumenta al jugador.
+* **aplicar**: Agrega el **item** a la lista de items aplicados del jugador y aplica sus estadísticas.
+Si lo desean los atributos que no son el precio pueden incluir valores negativos. En caso de que ocurra que **hp_total** es menor que **hp_actual**, se debe dejar **hp_actual** igual a **hp_total** (lo que puede finalizar el juego si hp  actual es menor o igual a 0).
+### 3.4. Mapa
+* **profundidad**: Cantidad de ”pisos“ que tiene el mapa (no incluye el nodo inicial ni el nodo del jefe final).
+* **nodo_inicial**: Nodo inicial del mapa.
+* **nodo actual**: Nodo en el que se encuentra el jugador.
+* **verMapa**: Permite al usuario ver el mapa completo (queda a su criterio si se muestra el mapa completo, se muestra nivel a nivel o de otra forma).
+* **avanzar**: Le muestra al usuario los nodos a los que puede avanzar, le pide seleccionar uno y hace al jugador interactuar con ese nodo.
+### 3.5. Nodo
+* **id**: Identificador, opcional, pero puede ser útil para generar el mapa.
+* **siguientes_nodos**: Lista de nodos a los cuales se puede avanzar desde el actual.
+* **agregarNodo**: Agrega un nodo a la lista de **siguientes_nodos**.
+### 3.6. NodoInicial
+* **interactuar**:  Le muestra al usuario una introducción al juego (Instrucciones y pueden incluir una historia).
+### 3.7. NodoEvento
 descripción: Pequeña historia que describe un encuentro del jugador en su aventura. alternativas: Dos opciones que puede tomar en el encuentro descrito. recompensas: Que le sucede al jugador tras tomar una de las alternativas.
 interactuar: Le muestra al usuario la descripción del evento y las alternativas que puede seleccionar (No se muestran explícitamente las recompensas asociadas a cada alternativa). Cuando el usuario selecciona una alternativa se le aplica la recompensa correspondiente.
 3.8.	NodoTienda
@@ -44,7 +55,7 @@ interactuar: Le muestra los items en el inventario de la tienda al usuario y cu�
 3.9.	NodoCombate o NodoJefeFinal
 Se implementan de la misma forma, pero JefeFinal se inicia con un enemigo más poderoso. enemigo/jefe: Enemigo al cual se debe enfrentar el jugador.
 interactuar: Realiza el combate informando al usuario los resultados de cada ataque realizado y determina al ganador.
-3.10.	Otros m´etodos y atributos
+3.10.	Otros métodos y atributos
 Todos los métodos y atributos mencionados deben estar implementados en la tarea, pero además deberán incluir constructores para todas las clases que los necesiten, getters y setters donde estimen necesario (no deben acceder a los atributos directamente desde fuera de una clase, estos deben ser obligatoriamente privados) y métodos o atributos adicionales si así lo desean.
 4.	Inicialización del juego
 Cuando se inicia el juego se le solicita al usuario ingresar un nombre para su personaje, y se inician sus estadísticas con:
