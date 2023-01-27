@@ -1,0 +1,31 @@
+Nombre: Jonathan Nicolás Olivares Salinas.
+Rol: 202073096-2
+
+-Programa encargado de leer un archivo certamen.txt, traspasarlo a una estructura de datos que simula ser una clase, para que el usuario pueda responderlo.
+Al finalizar las preguntas se le entrega al usuario la calificacíon, y si es que aprueba o reprueba. 
+
+Reprueba < (total de preguntas)*0.55 <= Aprueba
+
+-Sobre el codigo:
+
+En el codigo se suele usar mucho el metodo atoi para pasa a tipo int, esto es debido al caso en que el numero sea de 2 o más digitos.
+La liberación de memoria dinamica se realiza al finalizar el programa, simulando ser un destructor.
+En el codigo indica al momento de ejecutarse de que manera debe ser respondida la pregunta.
+Se modificó, según se indicó en el foro de dudas del aula las funciones revisar, las cuales ahora reciben dos parametros de tipo (void*)
+
+-De igual forma se indicará la forma en que el usuario debe responder: 
+
+Las respuestas de tipo alternativa simple se deben responder con el digito de la alternativa correcta.
+Las respuestas de tipo alternativa multiple se deben responder primero indicando el numero de alternativas que considere que son correctas, seguido de los digitos de las alternativas correctas, cada una separado de una linea (un enter).
+Las respuestas de tipo verdadero y falso se deben responder con un 'V' o con un 'F', según sea el caso.
+Las respuestas de tipo completar se deben responder escribiendo la palabra u oración segun el orden correspondiente, cada palabra u oración debe ser separado por una linea (un enter).
+
+-El programa cuenta de 3 archivos:
+
+certamen.c : Contiene las definiciones de las funciones.
+certamen.h : Contiene la implementación de los struct y de las funciones.
+main.c : Modulo principal, encargado de traspasar el certamen.txt a una estructura de datos, realizar el certamen y de revisar el certamen.
+
+-Tambien se incluye un archivo tipo makefile para poder compilar el programa.
+make : compila el programa creando un archivo a ejectuar con "./certamen" (sin comillas).
+make clean : elimina los archivos creados mediante make.
