@@ -1,5 +1,4 @@
-Nombre: Jonathan Nicolás Olivares Salinas.
-Rol: 202073096-2
+
 
 -Programa encargado de leer un archivo certamen.txt, traspasarlo a una estructura de datos que simula ser una clase, para que el usuario pueda responderlo.
 Al finalizar las preguntas se le entrega al usuario la calificacíon, y si es que aprueba o reprueba. 
