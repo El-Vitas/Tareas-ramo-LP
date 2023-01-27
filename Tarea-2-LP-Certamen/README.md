@@ -90,10 +90,10 @@ Además, se deben implementar las siguientes funciones para manipular la estruct
 24	int largoCertamen (tCertamen certamen);
 25
 26	// Revisa si la respuesta a la pregunta es correcta
-27	bool	revisarAlternativaSimple (tPregunta pregunta);
-28	bool	revisarAlternativaMultiple (tPregunta pregunta);
-29	bool	revisarVerdaderoFalso (tPregunta pregunta);
-30	bool	revisarCompletar (tPregunta pregunta);
+27	bool revisarAlternativaSimple (tPregunta pregunta);
+28	bool revisarAlternativaMultiple (tPregunta pregunta);
+29	bool revisarVerdaderoFalso (tPregunta pregunta);
+30	bool revisarCompletar (tPregunta pregunta);
 `````
 ### 2.5. Responder
 Luego de leer el archivo certamen.txt y cargar la información en la estructura de datos, se le debe permitir al usuario responder el certamen a través de la consola y una vez que termine de responder se le debe mostrar su calificación. Para esto deberán hacer uso de la estructura y funciones implementadas. El formato en el que el usuario responderá el cuestionario queda a su criterio, pero para cada pregunta se debe indicar el número de pregunta, el tipo de pregunta, el enunciado, las opciones que tiene para responder (si es que aplica) y el que debe ingresar para responder (un string, un entero, múltiples enteros separados por espacios, etc)
